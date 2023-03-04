@@ -1,35 +1,51 @@
 {
-  "name": "deriv-dojo-be",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "clean": "rimraf dist",
-    "prestart": "npm run clean",
-    "start": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint \"./src/**/*.js\" --fix",
-    "prepare": "husky install"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/likhith-deriv/Deriv-Dojo-BE.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/likhith-deriv/Deriv-Dojo-BE/issues"
-  },
-  "homepage": "https://github.com/likhith-deriv/Deriv-Dojo-BE#readme",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "eslint": "^8.35.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.2",
-    "prettier": "2.8.4"
-  }
+    "name": "deriv-dojo-be",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "clean": "rimraf dist",
+        "prestart": "npm run clean",
+        "start": "node src/app.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint \"./src/**/*.js\" --fix",
+        "prepare": "husky install"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/likhith-deriv/Deriv-Dojo-BE.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/likhith-deriv/Deriv-Dojo-BE/issues"
+    },
+    "homepage": "https://github.com/likhith-deriv/Deriv-Dojo-BE#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "eslint": "^8.35.0",
+        "husky": "^8.0.3",
+        "lint-staged": "^13.1.2",
+        "prettier": "2.8.4"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{js,jsx}": [
+            "prettier --write",
+            "eslint --fix",
+            "git add"
+        ],
+        "*.{html,css,scss}": [
+            "prettier --write",
+            "git add"
+        ]
+    }
 }
